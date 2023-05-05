@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Head or Tails Website</title>
+
+        <style>
+            body
+            {
+                background-color: lightblue;
+                font-family: Arial;
+                color: rgb(70, 68, 68);
+            }
+
+            button
+            {
+                border: none;
+                height: 100px;
+                border-radius: 20px;
+                background-color: lightcyan;
+                color:rgb(70, 68, 68);
+                font-size: 24px;
+                font-weight: 800;
+            }
+
+            p
+            {
+                font-size: 24px;
+                font-weight: 500;
+            }
+
+            .button-options
+            {
+                display: grid;
+                grid-template-columns: 200px 200px;
+                column-gap: 50px;
+                justify-content: center;
+            }
+
+            .the-title
+            {
+                display: grid;
+                justify-content: center;
+            }
+
+            button:hover
+            {
+                background-color: aliceblue;
+                font-size: 30px;
+            }
+
+            .result
+            {
+                display: grid;
+                justify-content: center;
+                margin-top: 80px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="the-title">
+            <h1>An awesome heads or tails website</h1>
+        </div>
+
+        <div class="button-options">
+            <button onclick=" playerMove('heads')">
+                Heads
+            </button>
+    
+            <button onclick=" playerMove('tails')">
+                Tails
+            </button>
+        </div>
+
+        <div class ="result">
+            <p class="result-text"></p>
+        </div>
+
+        <script>
+            let resultText = document.querySelector('.result-text');
+
+            function playerMove(playerGuess)
+            {
+                RNGNumber = Math.random();
+                computerAnswer = '';
+
+                if (RNGNumber < 0.5)
+                {
+                    computerAnswer = 'heads';
+                }
+                
+                else if (RNGNumber >= 0.5)
+                {
+                    computerAnswer = 'tails';
+                }
+
+                if (playerGuess === computerAnswer)
+                {
+                    resultText.innerHTML = `It was ${computerAnswer}! You got it right!`;
+                }
+
+                else
+                {
+                    resultText.innerHTML = `It was ${computerAnswer}. You got it wrong :(`;
+                }
+            }
+        </script>
+
+    </body>
+</html>
